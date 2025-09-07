@@ -1,0 +1,1193 @@
+.hero-section {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: white;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s;
+  z-index: 10;
+}
+
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.arrow-left {
+  left: 20px;
+}
+
+.arrow-right {
+  right: 20px;
+}
+
+/* Sidebar width fix for mobile */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 235px !important;   /* increase from default (e.g., 220px) */
+  }
+
+  .sidebar-top a:nth-child(5) {
+    font-size: 14px;
+    word-break: break-word;
+  }
+}
+
+.sidebar-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+  align-items: center;
+}
+/* Top section for icons and phone */
+
+.sidebar-top a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s;
+}
+
+.sidebar-top a:hover {
+  color: #ffd700;
+}
+
+.sidebar-top svg {
+  font-size: 20px;
+}
+
+/* Sidebar links */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+  color: #ffd700;
+}
+
+/* Only icons (first 3 links) should be inline */
+.sidebar-top a:nth-child(1),
+.sidebar-top a:nth-child(2),
+.sidebar-top a:nth-child(3) {
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Keep phone + email stacked below */
+.sidebar-top a:nth-child(4),
+.sidebar-top a:nth-child(5) {
+  flex-basis: 100%; /* force them to take full width */
+  font-size: 16px;
+}
+
+/* =========================
+   UNIVERSAL RESPONSIVENESS FIX
+   ========================= */
+
+/* Ensure no overflow */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Tablets (1024px and below) */
+@media (max-width: 1024px) {
+  .featured-services,
+  .bridal-section,
+  .contact-section {
+    grid-template-columns: 1fr 1fr; /* 2 columns */
+    gap: 20px;
+    padding: 40px 20px; /* reduced padding */
+  }
+
+  .navbar {
+    width: 100%; /* Avoid cutting off */
+    padding: 12px 20px;
+  }
+
+  .floral-section {
+    height: auto;
+    padding: 40px 20px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .floral-content {
+    max-width: 100%;
+  }
+}
+
+/* Mobiles (768px and below) */
+@media (max-width: 768px) {
+  .featured-services,
+  .bridal-section,
+  .contact-section {
+    grid-template-columns: 1fr; /* Stack vertically */
+    padding: 30px 15px;
+  }
+
+  .bridal-images .top-images {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .floral-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 15px;
+  }
+
+  .contact-form .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .events-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 15px;
+  }
+
+  .event-card {
+    max-width: 100%;
+  }
+}
+
+/* Extra small (phones under 480px) */
+@media (max-width: 480px) {
+  .bridal-images .top-images {
+    grid-template-columns: 1fr; /* stack vertically */
+  }
+
+  .bridal-text h2 {
+    font-size: 24px;
+  }
+
+  .bridal-text p {
+    font-size: 16px;
+  }
+
+  .contact-left h2,
+  .contact-right h2 {
+    font-size: 22px;
+  }
+
+  .contact-left p,
+  .contact-left h3,
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 15px;
+  }
+
+  .btn-learn,
+  .contact-form button,
+  .floral-btn {
+    font-size: 13px;
+    padding: 10px 18px;
+  }
+
+  .about-section p {
+    padding: 0 10px;
+  }
+
+  .navbar {
+    width: 100%; /* full width always */
+    padding: 10px 15px;
+  }
+}
+
+/* Contact Section */
+.contact-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  padding: 80px 150px;
+  background: #fff;
+  font-family: 'Times New Roman', serif;
+  color: #232323;
+}
+
+/* Contact Section Responsive Styles */
+.contact-section {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 150px;
+  flex-wrap: wrap;
+}
+
+.contact-left,
+.contact-right {
+  flex: 1;
+  min-width: 300px;
+  box-sizing: border-box;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.captcha {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  .contact-left,
+  .contact-right {
+    min-width: unset;
+    width: 100%;
+    padding: 0;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+  .form-bottom {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+}
+
+/* Left Side */
+.contact-left h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.contact-left h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.contact-left p {
+  font-size: 19px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* Right Side */
+.contact-right h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 50px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  outline: none;
+    border-radius: 5px;
+
+}
+
+.contact-form textarea {
+  min-height: 150px;
+  resize: none;
+    border-radius: 5px;
+
+}
+
+.form-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.captcha {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.captcha span {
+  font-size: 16px;
+}
+
+.contact-form button {
+  padding: 12px 30px;
+  background: #1a2e3b;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: #0e1e27;
+}
+
+/* Bridal Section */
+.bridal-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  padding: 0px 60px;
+  align-items: center;
+}
+
+.bridal-images {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bridal-images .top-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.bridal-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0px;
+}
+
+.bridal-text {
+  text-align: left;
+  font-family: 'Times New Roman', serif;
+  color: #232323;
+}
+
+.bridal-text h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.bridal-text p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 20px;
+}
+.bridal-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0px;
+}
+
+
+/* Featured Services Section */
+.featured-services {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  padding: 0px 60px;
+  background: #fdfdfd;
+  align-items: flex-start;
+}
+.EventsImage1 img{
+  height: 600px;
+}
+
+.service-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  font-family: 'Times New Roman', serif;
+  color: #232323;
+}
+
+.service-box h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.service-box p {
+  font-size: 19px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.service-box img {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 0px;
+  object-fit: cover;
+}
+
+/* Center Bridal Image */
+.service-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 0px;
+  object-fit: cover;
+}
+
+/* Buttons */
+.btn-learn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #0b2438;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-learn:hover {
+  background: #142d4c;
+}
+
+/* Featured Products Section */
+.featured-products {
+  text-align: center;
+  padding: 80px 20px;
+  background: #fdfdfd;
+  font-family: 'Times New Roman', serif;
+}
+
+.featured-products h2 {
+  font-size: 40px;
+  font-weight: 500;
+  color: #232323;
+  margin-bottom: 10px;
+}
+
+.featured-products .underline {
+  width: 50px;
+  height: 2px;
+  background: #232323;
+  margin: 0 auto 20px;
+}
+
+.featured-products p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 20px;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Floral Section */
+.floral-section {
+  position: relative;
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 60px;
+  font-family: 'Times New Roman', serif;
+}
+
+.floral-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.2); /* Light overlay for readability */
+}
+
+.floral-content {
+  position: relative;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.floral-subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color:black;
+  margin-bottom: 10px;
+}
+
+.floral-content h2 {
+  font-size: 48px;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 15px;
+}
+
+.floral-quote {
+  font-size: 18px;
+  font-style: italic;
+  color: black;
+  margin-bottom: 20px;
+  font-weight: 500;
+
+  
+}
+
+.floral-desc {
+  font-size: 17px;
+  line-height: 1.6;
+  color: black;
+  margin-bottom: 25px;
+      font-weight: 550;
+
+}
+
+.floral-btn {
+  background: #0d2c4a;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 15px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.floral-btn:hover {
+  background: #ffd700;
+  color: #232323;
+}
+
+.footer {
+  background: #f8f6f2;
+  padding: 50px 20px 20px;
+  font-family: 'Times New Roman', serif;
+  color: #222;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 280px;
+}
+
+.footer-column h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: blue;
+  font-family: cursive;
+}
+
+.footer-column p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.footer-socials {
+  margin-top: 20px;
+}
+
+.footer-socials a {
+  display: inline-block;
+  margin: 0 8px;
+  font-size: 20px;
+  color: #222;
+  transition: color 0.3s;
+}
+
+.footer-socials a:hover {
+  color: goldenrod;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.events-section {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.event-card {
+  flex: 1;
+  min-width: 280px;
+  max-width: 350px;
+  text-align: left;
+}
+
+.event-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 0px;
+  margin-bottom: 20px;
+}
+
+.event-card h3 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #232323;
+  font-family: 'Times New Roman', serif;
+}
+
+.event-card p {
+  font-size: 19px;
+  line-height: 1.7;
+  color: #444;
+  font-family: 'Times New Roman', serif;
+  
+}
+
+.about-section {
+  text-align: center;
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-section h2 {
+  font-size: 42px;
+  font-weight: 500;
+  color: #232323;
+  margin-bottom: 15px;
+  font-family: 'Times New Roman', serif;
+}
+
+.about-section .underline {
+  width: 50px;
+  height: 2px;
+  background-color: #232323;
+  margin: 0 auto 25px auto;
+}
+
+.about-section p {
+  font-size: 19px;
+  line-height: 1.8;
+  padding: 0 60px;
+  color: #444;
+  text-align: justify;
+  font-family: 'Times New Roman', serif;
+}
+
+.home-container {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 150px;
+  background: rgba(255, 255, 255, 0.1); /* semi-transparent white */
+  backdrop-filter: blur(1px);            /* frosted glass effect */
+  -webkit-backdrop-filter: blur(1px);    /* Safari support */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 77.8%;
+  z-index: 200;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo img {
+  height: 80px;
+  margin-right: 10px;
+}
+
+.navbar-logo span {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Hamburger Icon (always visible) */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 300;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animation for X */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Sidebar Menu */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 280px;
+  height: 100%;
+  background: #0d2c4a; /* Dark navy like screenshot */
+  padding: 60px 20px;
+  transition: right 0.4s ease;
+  z-index: 250;
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.sidebar .close-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 60px 0 0;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+  color: #ffd700;
+}
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 280px;
+  height: 100%;
+  background: #0d2c4a;
+  padding: 60px 20px;
+  transition: right 0.4s ease;
+  z-index: 250;
+  color: white;
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.sidebar .close-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.blue-text-section {
+  background-color: #0d2c4a; /* same navy blue */
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Times New Roman', serif;
+  padding: 20px 10px;
+  font-weight: 500;
+}
+
+
+
+
+/* Hero Section */
+.hero-section {
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background-image 1s ease-in-out; /* Smooth fade effect */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,50,0.4);
+}
+
+.hero-content {
+  position: relative;
+  color: white;
+  text-align: center;
+  max-width: 700px;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+/* Existing code (unchanged) ... */
+
+/* =====================
+   RESPONSIVE DESIGN
+   ===================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 12px 25px;
+      width: 90%;
+
+  }
+  .about-section p {
+  font-size: 19px;
+  line-height: 1.8;
+  padding: 0 30px;
+  color: #444;
+  text-align: justify;
+  font-family: 'Times New Roman', serif;
+}
+
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .sidebar {
+    width: 240px;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .navbar-logo span {
+    font-size: 16px;
+  }
+
+  .navbar-logo img {
+    height: 30px;
+  }
+
+  .hamburger span {
+    width: 20px;
+    height: 2px;
+  }
+
+  .hero-section {
+    height: 70vh;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .sidebar {
+    width: 220px;
+    padding: 50px 15px;
+  }
+.sidebar-top{
+    padding-top: 15px;
+
+}
+  .sidebar-top a {
+    font-size: 14px;
+    
+  }
+
+  .sidebar ul li a {
+    font-size: 16px;
+  }
+}
+
+/* Extra small devices (phones under 480px) */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 8px 15px;
+  }
+
+  .navbar-logo span {
+    font-size: 14px;
+  }
+
+  .hero-section {
+    height: 60vh;
+  }
+
+  .hero-content {
+    padding: 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 22px;
+  }
+
+  .hero-content p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .sidebar {
+    width: 200px;
+    padding: 40px 12px;
+  }
+
+  .sidebar-top a {
+    font-size: 12px;
+    gap: 5px;
+  }
+
+  .sidebar-top svg {
+    font-size: 16px;
+  }
+
+  .sidebar ul li a {
+    font-size: 14px;
+  }
+}
+
+/* Universal Responsive Fix for All Major Sections */
+@media (max-width: 1024px) {
+  .featured-services,
+  .bridal-section,
+  .footer-container {
+    grid-template-columns: 1fr 1fr !important;
+    flex-direction: row !important;
+    gap: 20px !important;
+    padding: 40px 20px !important;
+  }
+  .floral-section {
+    padding: 40px 20px !important;
+    height: auto !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  .events-section {
+    gap: 20px !important;
+    padding: 40px 20px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-services,
+  .bridal-section,
+  .footer-container {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    gap: 1rem !important;
+    padding: 30px 10px !important;
+  }
+  .service-box,
+  .service-image,
+  .bridal-images,
+  .bridal-text,
+  .footer-column {
+    width: 100% !important;
+    min-width: unset !important;
+    padding: 0 !important;
+  }
+  .floral-section {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 30px 10px !important;
+    height: auto !important;
+  }
+  .floral-content {
+    max-width: 100% !important;
+    padding: 15px !important;
+  }
+  .events-section {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    padding: 30px 10px !important;
+  }
+  .event-card {
+    max-width: 100% !important;
+    min-width: unset !important;
+  }
+  .about-section {
+    padding: 30px 10px !important;
+  }
+  .featured-products {
+    padding: 30px 10px !important;
+  }
+  .footer {
+    padding: 30px 10px 10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-services,
+  .bridal-section,
+  .footer-container {
+    padding: 15px 5px !important;
+    gap: 0.5rem !important;
+  }
+  .floral-section {
+    padding: 15px 5px !important;
+  }
+  .floral-content h2 {
+    font-size: 28px !important;
+  }
+  .footer {
+    padding: 15px 5px 5px !important;
+  }
+  .about-section h2 {
+    font-size: 28px !important;
+  }
+  .featured-products h2 {
+    font-size: 24px !important;
+  }
+  .event-card h3 {
+    font-size: 18px !important;
+  }
+  .event-card p,
+  .service-box p,
+  .about-section p,
+  .featured-products p {
+    font-size: 15px !important;
+  }
+}
+
+/* Ensure images scale responsively */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

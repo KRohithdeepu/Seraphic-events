@@ -1,0 +1,379 @@
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366; /* WhatsApp green */
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.whatsapp-float:hover {
+  background-color: #128C7E; /* darker on hover */
+}
+
+/* Universal Mobile Responsive Fix for All Sections */
+@media (max-width: 1024px) {
+  .testimonial-section,
+  .choose-section,
+  .celebration-section,
+  .journey-section {
+    padding: 60px 30px !important;
+  }
+  .since-overlay {
+    padding: 0 30px !important;
+  }
+  .about-hero-overlay {
+    padding-left: 30px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonial-section,
+  .choose-section,
+  .celebration-section,
+  .journey-section {
+    padding: 40px 10px !important;
+  }
+  /* Stack choose items */
+  .choose-container {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  .choose-item {
+    width: 100% !important;
+    max-width: 350px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Journey section stacks */
+  .journey-container {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    gap: 20px !important;
+  }
+
+  .journey-content {
+    margin-top: 20px !important;
+  }
+
+  .journey-content h2 {
+    font-size: 28px;
+  }
+  /* Center underline on mobile */
+  .journey-content .underline {
+    margin: 15px auto 25px auto !important;
+  }
+  
+
+  .since-content h2 {
+    font-size: 32px;
+  }
+
+  .since-overlay {
+    padding: 0 10px !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .about-hero-overlay {
+    padding-left: 10px !important;
+  }
+
+  .celebration-section p {
+    padding: 0 10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-section,
+  .choose-section,
+  .celebration-section,
+  .journey-section {
+    padding: 20px 5px !important;
+  }
+
+  .testimonial-container blockquote,
+  .choose-item p,
+  .celebration-section p,
+  .journey-content p,
+  .since-content p {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+
+  .choose-item h3,
+  .celebration-section h2,
+  .choose-section h2,
+  .journey-content h2,
+  .since-content h2,
+  .about-hero-overlay h1 {
+    font-size: 20px !important;
+  }
+
+  .choose-icon {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .since-overlay {
+    padding: 0 5px !important;
+  }
+
+  .about-hero-overlay {
+    padding-left: 5px !important;
+  }
+}
+
+/* Ensure images scale responsively */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Testimonial Section */
+.testimonial-section {
+  padding: 80px 150px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.testimonial-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.testimonial-container blockquote {
+  font-size: 20px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.testimonial-author {
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+}
+
+/* Why Choose Us Section */
+.choose-section {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: #f9f9f9;
+}
+
+.choose-section h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.underline {
+  width: 60px;
+  height: 3px;
+  background-color: #000;
+  margin: 0 auto 50px auto;
+}
+
+.choose-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+
+.choose-item {
+  width: 300px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Centers the image and title */
+  justify-content: center;  /* Ensures proper vertical alignment */
+}
+
+
+.choose-icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+
+  
+}
+
+
+.choose-item h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.choose-item p {
+  font-size: 17.5px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* To The World Of Celebrations Section */
+.celebration-section {
+  text-align: center;
+  padding: 80px 90px;
+  background-color: #f9f9f9;
+}
+
+.celebration-section h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.celebration-section .underline {
+  width: 60px;
+  height: 3px;
+  background-color: #000;
+  margin: 0 auto 30px auto;
+}
+
+.celebration-section p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 17.5px;
+  line-height: 1.8;
+  color: #555;
+  text-align:justify;
+  padding: 0 90px;
+}
+
+/* Since 2009 Section */
+.since-section {
+  position: relative;
+  width: 100%;
+  height: 600px; /* adjust as needed */
+  overflow: hidden;
+}
+
+.since-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.since-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(10, 37, 64, 0.75), rgba(0, 0, 0, 0.2));
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 100px;
+}
+
+.since-content {
+  max-width: 600px;
+}
+
+.since-content h2 {
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.since-content p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #fff;
+}
+
+/* Journey Section */
+.journey-section {
+  padding: 80px 100px;
+  background: #fff;
+}
+
+.journey-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.journey-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0; /* screenshot shows square image */
+}
+
+.journey-content h2 {
+  font-size: 38px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.journey-content .underline {
+  width: 60px;
+  height: 3px;
+  background: #000;
+  margin: 15px 0 25px;
+}
+
+.journey-content p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.about-hero {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+}
+
+.about-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(10, 37, 64, 0.8) 30%, rgba(0, 0, 0, 0) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 80px;
+}
+
+.about-hero-overlay h1 {
+  color: #fff;
+  font-size: 60px;
+  font-weight: bold;
+}
