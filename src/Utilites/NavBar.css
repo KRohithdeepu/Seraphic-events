@@ -1,0 +1,129 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  color: white;
+  z-index: 1000;
+  transition: all 0.4s ease-in-out;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.85); /* dark background */
+  backdrop-filter: blur(10px); /* glass effect */
+  padding: 12px 60px; /* shrink */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  animation: fadeDown 0.5s ease;
+}
+
+@keyframes fadeDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.navbar.scrolled .navbar-logo {
+  transform: scale(0.9);
+}
+
+.navbar-logo img {
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Hamburger */
+.hamburger {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1200;
+}
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #000000; /* changed from #222 so it shows on dark backgrounds */
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 260px;
+  height: 100%;
+  background: #111;
+  color: #fff;
+  padding: 40px 20px;
+  transition: right 0.4s ease;
+  z-index: 1100;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.4);
+}
+.sidebar.active {
+  right: 0;
+}
+.sidebar .close-btn {
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+.sidebar ul {
+  list-style: none;
+  margin-top: 80px;
+}
+.sidebar ul li {
+  margin: 20px 0;
+}
+.sidebar ul li a {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.sidebar ul li a:hover {
+  color: #f9b234;
+}
+.sidebar-top a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  color: #eee;
+  font-size: 15px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.sidebar-top a:hover {
+  color: #f9b234;
+}
