@@ -12,21 +12,30 @@ import {
 } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleMenu } from "../../store/uiSlice";
-import Footer from "../Footer.jsx"; // Adjust the path as necessary
-import SidebarMenu from "../SidebarMenu"; // Adjust the path as necessary
+import Footer from "../Footer.jsx"; 
+import SidebarMenu from "../SidebarMenu"; 
 import Navbar from "../Navbar.jsx";
 import Contact from "../Contacts.jsx";
 
-// Import AOS for scroll animations
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+// ✅ Manually import all images
+import aboutHeroImg from "../../assets/About_hero-1.jpg";
+import journeyImg from "../../assets/Joureny-1.jpg";
+import sinceImg from "../../assets/Since-1.jpg";
+import trophyImg from "../../assets/Trophy-1.jpg";
+import giftImg from "../../assets/Gift-1.jpg";
+import bicycleImg from "../../assets/Bicycle-1.jpg";
 
 const Index = () => {
   const dispatch = useDispatch();
   const isOpen = useSelector((state) => state.ui.isOpen);
-const handleToggleMenu = () => {
+
+  const handleToggleMenu = () => {
     dispatch(toggleMenu());
   };
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -54,18 +63,19 @@ const handleToggleMenu = () => {
 
   return (
     <div>
-        <Navbar />
-        <SidebarMenu isOpen={isOpen} toggleMenu={handleToggleMenu} />
-
+      <Navbar />
+      <SidebarMenu isOpen={isOpen} toggleMenu={handleToggleMenu} />
 
       {/* About Hero */}
       <section className="about-hero" data-aos="fade-up">
         <img
-          src={new URL("../../assets/About_hero-1.jpg", import.meta.url).href}
+          src={aboutHeroImg}
           alt="About Us"
           className="about-hero-img"
         />
-        <div className="about-hero-overlay"><h1>About Us</h1></div>
+        <div className="about-hero-overlay">
+          <h1>About Us</h1>
+        </div>
       </section>
 
       {/* Journey */}
@@ -73,12 +83,14 @@ const handleToggleMenu = () => {
         <div className="journey-container">
           <div className="journey-image">
             <img
-              src={new URL("../../assets/Joureny-1.jpg", import.meta.url).href}
+              src={journeyImg}
               alt="Journey"
             />
           </div>
           <div className="journey-content">
-            <h2>A Journey Worth <br /> Memorable With Us</h2>
+            <h2>
+              A Journey Worth <br /> Memorable With Us
+            </h2>
             <div className="underline"></div>
             <p>
               What makes us stand different is our professionalism,
@@ -116,7 +128,7 @@ const handleToggleMenu = () => {
       {/* Since 2009 */}
       <section className="since-section" data-aos="fade-up">
         <img
-          src={new URL("../../assets/Since-1.jpg", import.meta.url).href}
+          src={sinceImg}
           alt="Since 2009"
           className="since-bg"
         />
@@ -145,24 +157,24 @@ const handleToggleMenu = () => {
         <div className="choose-container">
           {[
             {
-              img: "../../assets/Trophy-1.jpg",
+              img: trophyImg,
               title: "13 Years of Experience",
               text: "A company with 13 years of experience has something to offer. Our stability comes from working with the best and brightest in our industry.",
             },
             {
-              img: "../../assets/Gift-1.jpg",
+              img: giftImg,
               title: "Loyalty",
               text: "We place a high priority on relationships and customer service. Dedicated and loyal employees treat our customers as family and friends.",
             },
             {
-              img: "../../assets/Bicycle-1.jpg",
+              img: bicycleImg,
               title: "Quality",
               text: "The testimonials of our customers are a testament to the quality of the products & services that we offer.",
             },
           ].map(({ img, title, text }, i) => (
             <div className="choose-item" key={i}>
               <img
-                src={new URL(img, import.meta.url).href}
+                src={img}
                 alt={title}
                 className="choose-icon"
               />
@@ -201,7 +213,7 @@ const handleToggleMenu = () => {
       </section>
 
       <Contact />
-      <Footer />  {/* Add the footer here */}
+      <Footer />  
 
       {/* WhatsApp Floating Button */}
       <a

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useRef } from "react";
 import "./Index.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,6 +8,16 @@ import SidebarMenu from "../SidebarMenu"; // Adjust the path as necessary
 import Navbar from "../Navbar.jsx";
 import "../Navbar.css";
 import Contact from "../Contacts.jsx";
+import video1 from "../../assets/Video1.mp4";
+import video2 from "../../assets/Video2.mp4";
+import video3 from "../../assets/Video3.mp4";
+import video4 from "../../assets/Video4.mp4";
+// Import video preview images
+import videoImg1 from "../../assets/Video-I1.jpg";
+import videoImg2 from "../../assets/Video-I2.jpg";
+import videoImg3 from "../../assets/Video-I3.jpg";
+import videoImg4 from "../../assets/Video-I4.jpg";
+
 
 // Icons
 import {
@@ -25,6 +35,47 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const Index = () => {
+  const videoRefs = useRef([]);
+const videoData = [
+  {
+    src: "/videos/video1.mp4",
+    img: "/images/thumb1.jpg",
+  },
+  {
+    src: "/videos/video2.mp4",
+    img: "/images/thumb2.jpg",
+  },
+  {
+    src: "/videos/video3.mp4",
+    img: "/images/thumb3.jpg",
+  },
+  {
+    src: "/videos/video4.mp4",
+    img: "/images/thumb4.jpg",
+  },
+];
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    },
+    { threshold: 0.5 } // play when at least 50% visible
+  );
+
+  videoRefs.current.forEach((video) => {
+    if (video) observer.observe(video);
+  });
+
+  return () => observer.disconnect();
+}, []);
   const dispatch = useDispatch();
   const { currentImage, isOpen } = useSelector((state) => state.hero);
 const handleToggleMenu = () => {
@@ -148,30 +199,48 @@ const handleToggleMenu = () => {
         ))}
       </section>
 
-      {/* Floral Section */}
-      <section
-        className="floral-section"
-        style={{
-          backgroundImage: `url(${new URL(
-            "../../assets/Floral_Image-1.jpg",
-            import.meta.url
-          ).href})`,
-        }}
-        data-aos="fade-up"
+
+
+
+      <h2 className="video">Our Event Highlights</h2>
+<div className="underline"></div>
+
+<div
+  className="videos-section"
+  style={{
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "20px",
+    justifyContent: "center"
+  }}
+>
+  {[
+    { src: video1, img: videoImg1 },
+    { src: video2, img: videoImg2 },
+    { src: video3, img: videoImg3 },
+    { src: video4, img: videoImg4 },
+  ].map((video, index) => (
+    <div
+      key={index}
+      className="video-card"
+      style={{ width: "35%", height: "250px" }}
+    >
+      <video
+        ref={(el) => (videoRefs.current[index] = el)}
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster={video.img}
+        style={{ width: "100%", height: "100%", objectFit: "cover" }}
       >
-        <div className="floral-overlay"></div>
-        <div className="floral-content">
-          <p className="floral-subtitle">Floral destination</p>
-          <h2>Azalea</h2>
-          <p className="floral-quote">
-            “spreading love to your loved ones by sending them a lovely gift which they admire the most.”
-          </p>
-          <p className="floral-desc">
-            Giving a glorious and heavenly ambience on your amazing day with original imported floral accessories.
-          </p>
-          <button className="floral-btn">MORE INFO</button>
-        </div>
-      </section>
+        <source src={video.src} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  ))}
+</div>
+
 
       {/* Featured Products */}
       <section className="featured-products" data-aos="fade-up">
@@ -189,7 +258,7 @@ const handleToggleMenu = () => {
       {/* Services */}
       <section className="featured-services" data-aos="fade-up">
         <div className="service-box" data-aos="fade-right">
-          <h2>Decoration</h2>
+          <h2>Customized Birthday Decor</h2>
           <p>
             Proper decoration can make an event to the next level. It gives
             extra pleasure and happiness. We assure you the best decoration
@@ -197,22 +266,22 @@ const handleToggleMenu = () => {
           </p>
           <button className="btn-learn">LEARN MORE</button>
           {[
-            new URL("../../assets/Decoration_Image-1.jpg", import.meta.url).href,
-            new URL("../../assets/Decoration_Image-2.jpg", import.meta.url).href,
+            new URL("../../assets/Birthday-I1.jpg", import.meta.url).href,
+            new URL("../../assets/Birthday-I2.jpg", import.meta.url).href,
           ].map((img, i) => (
             <img key={i} src={img} alt="Decoration" loading="lazy" />
           ))}
         </div>
         <div className="service-image" data-aos="fade-left">
           <img
-            src={new URL("../../assets/Bridal_Image-1.jpg", import.meta.url).href}
+            src={new URL("../../assets/Destination-wedding-I1.jpg", import.meta.url).href}
             alt="Bridal"
             loading="lazy"
           />
           <div className="bridal-text">
-            <h2>Bridal Bouquet</h2>
+            <h2>Destination Wedding</h2>
             <p>
-              Your wedding day is partial without a bridal bouquet. It makes you
+              Your wedding day is partial without a Destination Wedding. It makes you
               bloom like a real flower inside. Flowers bring that special essence
               and make your day more colorful.
             </p>
@@ -220,17 +289,17 @@ const handleToggleMenu = () => {
           </div>
         </div>
         <div className="service-box" data-aos="fade-right">
-          <h2>Custom Events</h2>
+          <h2>Corporate Events</h2>
           <p>
             What we do is join with our customers to narrate their fairytales in
             consonance with the way they want. Our happiness is making our
             client’s happy and to be a part of our story, you are just a few
-            steps away from initiating your wedding pages.
+            steps away from initiating your Events.
           </p>
           <button className="btn-learn">DETAILS</button>
           {[
             new URL("../../assets/Events_Images-1.jpg", import.meta.url).href,
-            new URL("../../assets/Events_Images-2.jpg", import.meta.url).href,
+            new URL("../../assets/Corparate-Events-I1.jpg", import.meta.url).href,
           ].map((img, i) => (
             <img key={i} src={img} alt="Custom Events" loading="lazy" />
           ))}
